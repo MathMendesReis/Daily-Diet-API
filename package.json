@@ -14,6 +14,7 @@
   "author": "Matheus Mendes Dos Reis",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "20.12.8",
     "eslint": "9.2.0",
     "eslint-config-prettier": "9.1.0",
     "globals": "15.1.0",
