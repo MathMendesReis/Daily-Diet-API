@@ -1,7 +1,7 @@
 import { randomUUID } from "crypto"
 
-export abstract class UniqueEntityID{
-    private id: string
+export class UniqueEntityID{
+    protected id: string
     toString(){
         return this.id
     }

@@ -8,13 +8,17 @@
     "build": "tsup src --out-dir build",
     "test": "vitest",
     "test:ui": "vitest --ui",
-    "test:watch": "vitest --watch"
+    "test:watch": "vitest --watch",
+    "test:debug": "node --inspect-brk node_modules/vitest/bin/vitest.js"
   },
   "keywords": [],
   "author": "Matheus Mendes Dos Reis",
   "license": "ISC",
   "devDependencies": {
+    "@types/bcryptjs": "2.4.6",
+    "@types/jsonwebtoken": "9.0.6",
     "@types/node": "20.12.8",
+    "@vitest/ui": "1.6.0",
     "eslint": "9.2.0",
     "eslint-config-prettier": "9.1.0",
     "globals": "15.1.0",
@@ -25,6 +29,12 @@
     "vitest": "1.6.0"
   },
   "dependencies": {
+    "bcrypt": "5.1.1",
+    "bcryptjs": "2.4.3",
+    "cors": "2.8.5",
+    "jsonwebtoken": "9.0.2",
+    "passport": "0.7.0",
+    "passport-jwt": "4.0.1",
     "zod": "3.23.6"
   }
 }
