@@ -1,10 +1,10 @@
 import { hashService } from "../../../../core/contrats/hash-service-contratc";
-import { JwtService } from "../../../../core/entities/jwt";
+import { TJwtService } from "../../../../core/entities/jwt";
 import { userRepository } from "../repositories/user-repository";
 
 export class AuthenticateUseCase{
     constructor(
-        private jwtService:JwtService,
+        private jwtService:TJwtService,
         private userRepository:userRepository,
         private hashService:hashService
     ){}

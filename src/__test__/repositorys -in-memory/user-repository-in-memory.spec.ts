@@ -10,7 +10,7 @@ describe('Testando repositirio in memory',()=>{
 
 
     beforeEach( async ()=>{
-        InMemoryUserRepository = new UserRepositoryInMemory()
+        InMemoryUserRepository = UserRepositoryInMemory.getInstance()
         user = new User('User 3', 'user1@example.com', await hash('password3', 6));
         await InMemoryUserRepository.create(user)
 

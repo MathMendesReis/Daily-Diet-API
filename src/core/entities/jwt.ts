@@ -1,17 +1,25 @@
 import jwt from 'jsonwebtoken';
+import { env } from '../env/env';
 
-export class JwtService{
+export interface IPayload {
+    userId: string;
+}
+export interface TJwtService {
+    sign(payload: object): string
+    verify(token: string): jwt.JwtPayload | null
+}
+export class JwtService implements TJwtService{
     private secretKey: string
 
-    constructor(secretKey: string){
-        this.secretKey = secretKey
+    constructor(){
+        this.secretKey = env.JWT_SECRET
     }
 
-    sign(payload: object): string {
+    sign(payload: IPayload): string {
         return jwt.sign(payload, this.secretKey);
       }
     
-    verify(token: string): jwt.JwtPayload | null {
-        return jwt.decode(token) as jwt.JwtPayload | null;
+    verify(token: string): IPayload | null {
+        return jwt.decode(token) as IPayload | null;
     }
 }

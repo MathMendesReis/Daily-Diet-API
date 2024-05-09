@@ -2,6 +2,19 @@ import { userRepository } from "../../domain/user/applications/repositories/user
 import { User } from "../../domain/user/enterprise/entities/user";
 
 export class UserRepositoryInMemory implements userRepository{
+    private static instance: UserRepositoryInMemory;
+    private constructor() {
+    }
+    async findById(id: string): Promise<User | null> {
+        return this.users.find((x)=> x.toValeu() === id) || null
+    }
+
+    public static getInstance(): UserRepositoryInMemory {
+        if (!UserRepositoryInMemory.instance) {
+            UserRepositoryInMemory.instance = new UserRepositoryInMemory();
+        }
+        return UserRepositoryInMemory.instance;
+    }
     private users: User[] = [];
     async create(user:User):Promise<void>{
         this.users = [...this.users, user]
@@ -13,6 +26,11 @@ export class UserRepositoryInMemory implements userRepository{
     async findAll():Promise<User[]>{
         return this.users
     }
+
+   
+
+
+    
 
     
 }

@@ -9,7 +9,7 @@ describe('Create new user',()=>{
     let sut: CreateUserUseCase
 
     beforeEach(()=>{
-        InMemoryUserRepository = new UserRepositoryInMemory()
+        InMemoryUserRepository = UserRepositoryInMemory.getInstance()
         sut = makeCreateUserUseCase(InMemoryUserRepository)
     })
 
