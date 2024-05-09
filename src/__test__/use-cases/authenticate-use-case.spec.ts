@@ -13,6 +13,7 @@ describe('Create new user',()=>{
     beforeEach(()=>{
         InMemoryUserRepository = UserRepositoryInMemory.getInstance();
         sut = makeAuthenticateUseCase()
+        
     })
      it('Deve autenticar um usuario com sucesso', async () => {
          const user3 = new User('User 3', 'user1@example.com', await hash('password3', 6));
@@ -20,7 +21,6 @@ describe('Create new user',()=>{
          const response = await sut.execute(user3.getEmail(),'password3')
          const jwtService = new JwtService();
          const decoded = jwtService.verify(response);
-        console.log(response)
          expect(typeof response).toBe('string');
          expect(decoded).toHaveProperty('id', user3.toValeu());
        

@@ -1,7 +1,7 @@
 import { TJwtService } from "../../../../core/entities/jwt"
+import { userRepository } from "../../../user/applications/repositories/user-repository"
 import { Meal } from "../../enterprise/entities/meal"
 import { mealRepository } from "../repositories/meal-repository"
-import { userRepository } from "../repositories/user-repository"
 
 export class CreateMeal {
     constructor(
@@ -14,7 +14,7 @@ export class CreateMeal {
     async execute(
         name:string,
         description:string,
-        mealTime: string,
+        mealTime: Date,
         isOnTheDiet:boolean,
         token:string
     ){
@@ -25,13 +25,13 @@ export class CreateMeal {
             throw new Error('Invalid token')
         }
         
-        const userDB = await this.userRepository.findById(decoded.id)
+        const userDB =  await this.userRepository.findById(decoded.id)
 
         if(userDB == null){
             throw new Error('User not found')
         }
 
-        const newMeal = new Meal(name, description, new Date(mealTime),isOnTheDiet)
+        const newMeal = new Meal(name, description, new Date(mealTime),isOnTheDiet,userDB.toValeu())
         await this.mealRepository.create(decoded.id,newMeal)
         return newMeal
     }

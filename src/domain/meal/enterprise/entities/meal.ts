@@ -6,6 +6,8 @@ export class Meal extends UniqueEntityID{
         private description:string,
         private mealTime:Date,
         private isOnTheDiet:boolean,
+        private userID:string,
+
     ){
         super()
     }
@@ -21,6 +23,9 @@ export class Meal extends UniqueEntityID{
     getIsOnTheDiet(){
         return this.isOnTheDiet;
     }
+    getUserID(){
+        return this.userID;
+    }
 
 
     setName(name:string,){
@@ -29,13 +34,13 @@ export class Meal extends UniqueEntityID{
     setDescription(description:string,){
         this.description = description
     }
-    setMealTime(mealTime: string) {
-        const parsedDate = this.parseMealTime(mealTime);
-        this.mealTime = parsedDate;
+    setMealTime(mealTime: Date) {
+        this.mealTime = mealTime;
     }
-    toggleIsOnTheDiet(){
-        this.isOnTheDiet = !this.isOnTheDiet
+    setIsOnTheDiet(value:boolean){
+        this.isOnTheDiet = value
     }
+   
 
     parseMealTime(mealTime: string) {
         const [date, time] = mealTime.split(' - ');

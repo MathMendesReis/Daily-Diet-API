@@ -5,5 +5,7 @@ export interface mealRepository {
     findUniqueById(id:string):Promise<Meal | null>
     findMany(id:string):Promise<Meal[]>
     updateById(id:string, meal:Meal):Promise<void>
-    deleteById(id):Promise<void>
+    deleteById(id:string):Promise<void>
+    findManyIsOnTheDietTrue(id:string):Promise<Meal[]>
+    findManyIsOnTheDietFalse(id:string):Promise<Meal[]>
 }

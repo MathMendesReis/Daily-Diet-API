@@ -7,6 +7,7 @@ import { UserRepositoryInMemory } from '../repositorys -in-memory/user-repositor
 describe('Create new user',()=>{
     let InMemoryUserRepository: UserRepositoryInMemory
     let sut: CreateUserUseCase
+    
 
     beforeEach(()=>{
         InMemoryUserRepository = UserRepositoryInMemory.getInstance()
@@ -14,8 +15,7 @@ describe('Create new user',()=>{
     })
 
     it('Deve ser possivel criar um novo usuario',async ()=>{
-        const password_hash = await hash('1234560',6)
-        const response = await sut.execute('matheus','example@gmail.com',password_hash)
+        const response = await sut.execute('matheus','example@gmail.com','1234560')
         expect(response).toHaveProperty('id')
         expect(response).toHaveProperty('name')
     })

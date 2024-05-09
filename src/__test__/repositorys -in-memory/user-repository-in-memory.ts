@@ -21,17 +21,10 @@ export class UserRepositoryInMemory implements userRepository{
     }
 
     async findEmailByEmail(email:String):Promise<User|null>{
-        return this.users.find((x)=> x.getEmail() === email) || null
+        return await this.users.find((x)=> x.getEmail() === email) || null
     }
     async findAll():Promise<User[]>{
         return this.users
     }
-
-   
-
-
-    
-
-    
 }
 
