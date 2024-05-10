@@ -5,8 +5,7 @@
   "scripts": {
     "start:dev": "tsx watch src/server.ts",
     "start": "node src/server.js",
-    "build": "tsup src/api --out-dir build",
-    "build:e": "tsup src/index.ts --watch --ignore-watch ignore-this-folder-too",
+    "build": "tsup src/api --out-dir build --watch --onSuccess node src/server.js",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:watch": "vitest --watch",
