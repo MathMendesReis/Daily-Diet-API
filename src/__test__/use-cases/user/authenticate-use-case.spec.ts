@@ -14,6 +14,7 @@ describe('Create new user',()=>{
         InMemoryUserRepository = UserRepositoryInMemory.getInstance();
         sut = makeAuthenticateUseCase()
         
+        
     })
      it('Deve autenticar um usuario com sucesso', async () => {
          const user3 = new User('User 3', 'user1@example.com', await hash('password3', 6));

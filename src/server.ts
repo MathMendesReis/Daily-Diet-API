@@ -1,3 +1,4 @@
-import { start } from "./api/core/fastify/app";
+import { start } from "./api/core/fastify/start";
 
 start()
+

@@ -1,14 +1,12 @@
 import Fastify from "fastify";
+import authUserPassword from "../../infra/http/user-routers/auth-user-password";
+import createUserController from "../../infra/http/user-routers/create-user-controller";
 
-export const app = Fastify({
+export const fastify = Fastify({
 });
 
-export async function start(){
-  try {
-    await app.listen({ port: 3000 });
-    console.log("🚀 HTTP Server Running!");
-  } catch (err) {
-    app.log.error(err);
-    process.exit(1);
-  }
-};
+createUserController(fastify);
+authUserPassword(fastify)
+
+
+
