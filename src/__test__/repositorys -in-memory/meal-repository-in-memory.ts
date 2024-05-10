@@ -1,5 +1,5 @@
-import { mealRepository } from "../../domain/meal/applications/repositories/meal-repository";
-import { Meal } from "../../domain/meal/enterprise/entities/meal";
+import { mealRepository } from "../../api/domain/meal/applications/repositories/meal-repository";
+import { Meal } from "../../api/domain/meal/enterprise/entities/meal";
 
 export class MealRepositoryInMemory implements mealRepository{
     private static instance: MealRepositoryInMemory;
@@ -41,8 +41,9 @@ export class MealRepositoryInMemory implements mealRepository{
         })
     }
 
-    async deleteById(id: any): Promise<void> {
-        
+    async deleteById(id: string): Promise<void> {
+        const deleteMeal = this.meals.filter((x) => x.toValeu() !== id);
+        this.meals = deleteMeal;
     }
     async findManyIsOnTheDietTrue(userId:string):Promise<Meal[]>{
         return this.meals.filter((x) => x.getIsOnTheDiet() === true);

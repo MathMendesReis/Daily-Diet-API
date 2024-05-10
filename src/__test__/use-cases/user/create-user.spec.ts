@@ -1,8 +1,8 @@
 import { compare, hash } from 'bcryptjs'
 import { beforeEach, describe, expect, it } from 'vitest'
-import { CreateUserUseCase } from '../../domain/user/applications/use-case/create-user-use-case'
-import { makeCreateUserUseCase } from '../../domain/user/applications/use-case/factories/make-create-user-use-case'
-import { UserRepositoryInMemory } from '../repositorys -in-memory/user-repository-in-memory'
+import { CreateUserUseCase } from '../../../api/domain/user/applications/use-case/create-user-use-case'
+import { makeCreateUserUseCase } from '../../../api/domain/user/applications/use-case/factories/make-create-user-use-case'
+import { UserRepositoryInMemory } from '../../repositorys -in-memory/user-repository-in-memory'
 
 describe('Create new user',()=>{
     let InMemoryUserRepository: UserRepositoryInMemory

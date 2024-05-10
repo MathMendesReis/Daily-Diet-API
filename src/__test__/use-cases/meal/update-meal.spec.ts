@@ -1,11 +1,11 @@
 import { beforeEach, describe, expect, it } from 'vitest';
-import { makeCreateMealUseCase } from '../../domain/meal/applications/use-case/factories/make-create-meal-use-case';
-import { makeUpdateMealUseCase } from '../../domain/meal/applications/use-case/factories/make-update-meal-use-case';
-import { CreateUserUseCase } from '../../domain/user/applications/use-case/create-user-use-case';
-import { makeAuthenticateUseCase } from '../../domain/user/applications/use-case/factories/make-authenticate-use-case';
-import { makeCreateUserUseCase } from '../../domain/user/applications/use-case/factories/make-create-user-use-case';
-import { MealRepositoryInMemory } from '../repositorys -in-memory/meal-repository-in-memory';
-import { UserRepositoryInMemory } from '../repositorys -in-memory/user-repository-in-memory';
+import { makeCreateMealUseCase } from '../../../api/domain/meal/applications/use-case/factories/make-create-meal-use-case';
+import { makeUpdateMealUseCase } from '../../../api/domain/meal/applications/use-case/factories/make-update-meal-use-case';
+import { CreateUserUseCase } from '../../../api/domain/user/applications/use-case/create-user-use-case';
+import { makeAuthenticateUseCase } from '../../../api/domain/user/applications/use-case/factories/make-authenticate-use-case';
+import { makeCreateUserUseCase } from '../../../api/domain/user/applications/use-case/factories/make-create-user-use-case';
+import { MealRepositoryInMemory } from '../../repositorys -in-memory/meal-repository-in-memory';
+import { UserRepositoryInMemory } from '../../repositorys -in-memory/user-repository-in-memory';
 
 
 describe('update meal',()=>{

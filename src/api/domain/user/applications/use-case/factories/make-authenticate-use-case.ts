@@ -1,4 +1,4 @@
-import { UserRepositoryInMemory } from "../../../../../__test__/repositorys -in-memory/user-repository-in-memory";
+import { UserRepositoryInMemory } from "../../../../../../__test__/repositorys -in-memory/user-repository-in-memory";
 import { HashService } from "../../../../../core/entities/hashService";
 import { JwtService } from "../../../../../core/entities/jwt";
 import { AuthenticateUseCase } from "../Authenticate-use-case";

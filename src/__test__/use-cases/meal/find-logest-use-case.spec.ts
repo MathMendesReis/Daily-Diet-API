@@ -1,11 +1,11 @@
 import { expect, test } from "vitest";
-import { JwtService } from "../../core/entities/jwt";
-import { makeCreateMealUseCase } from "../../domain/meal/applications/use-case/factories/make-create-meal-use-case";
-import { findLongestStreak } from "../../domain/meal/applications/use-case/find-longest-streak-use-case";
-import { makeAuthenticateUseCase } from "../../domain/user/applications/use-case/factories/make-authenticate-use-case";
-import { makeCreateUserUseCase } from "../../domain/user/applications/use-case/factories/make-create-user-use-case";
-import { MealRepositoryInMemory } from "../repositorys -in-memory/meal-repository-in-memory";
-import { UserRepositoryInMemory } from "../repositorys -in-memory/user-repository-in-memory";
+import { JwtService } from "../../../api/core/entities/jwt";
+import { makeCreateMealUseCase } from "../../../api/domain/meal/applications/use-case/factories/make-create-meal-use-case";
+import { findLongestStreak } from "../../../api/domain/meal/applications/use-case/find-longest-streak-use-case";
+import { makeAuthenticateUseCase } from "../../../api/domain/user/applications/use-case/factories/make-authenticate-use-case";
+import { makeCreateUserUseCase } from "../../../api/domain/user/applications/use-case/factories/make-create-user-use-case";
+import { MealRepositoryInMemory } from "../../repositorys -in-memory/meal-repository-in-memory";
+import { UserRepositoryInMemory } from "../../repositorys -in-memory/user-repository-in-memory";
 
 
 const mealRepositoryMock = MealRepositoryInMemory.getInstance()

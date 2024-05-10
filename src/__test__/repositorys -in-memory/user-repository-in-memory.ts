@@ -1,5 +1,5 @@
-import { userRepository } from "../../domain/user/applications/repositories/user-repository";
-import { User } from "../../domain/user/enterprise/entities/user";
+import { userRepository } from "../../api/domain/user/applications/repositories/user-repository";
+import { User } from "../../api/domain/user/enterprise/entities/user";
 
 export class UserRepositoryInMemory implements userRepository{
     private static instance: UserRepositoryInMemory;

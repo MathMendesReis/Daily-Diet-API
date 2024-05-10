@@ -1,10 +1,10 @@
 import { hash } from 'bcryptjs'
 import { beforeEach, describe, expect, it } from 'vitest'
-import { JwtService } from '../../core/entities/jwt'
-import { AuthenticateUseCase } from '../../domain/user/applications/use-case/Authenticate-use-case'
-import { makeAuthenticateUseCase } from '../../domain/user/applications/use-case/factories/make-authenticate-use-case'
-import { User } from '../../domain/user/enterprise/entities/user'
-import { UserRepositoryInMemory } from '../repositorys -in-memory/user-repository-in-memory'
+import { JwtService } from '../../../api/core/entities/jwt'
+import { AuthenticateUseCase } from '../../../api/domain/user/applications/use-case/Authenticate-use-case'
+import { makeAuthenticateUseCase } from '../../../api/domain/user/applications/use-case/factories/make-authenticate-use-case'
+import { User } from '../../../api/domain/user/enterprise/entities/user'
+import { UserRepositoryInMemory } from '../../repositorys -in-memory/user-repository-in-memory'
 
 describe('Create new user',()=>{
     let InMemoryUserRepository: UserRepositoryInMemory

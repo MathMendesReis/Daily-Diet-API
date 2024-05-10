@@ -1,14 +1,13 @@
 import { describe, expect, it } from 'vitest';
-import { makeCreateMealUseCase } from '../../domain/meal/applications/use-case/factories/make-create-meal-use-case';
-import { makeAuthenticateUseCase } from '../../domain/user/applications/use-case/factories/make-authenticate-use-case';
-import { makeCreateUserUseCase } from '../../domain/user/applications/use-case/factories/make-create-user-use-case';
-import { UserRepositoryInMemory } from '../repositorys -in-memory/user-repository-in-memory';
+import { makeCreateMealUseCase } from '../../../api/domain/meal/applications/use-case/factories/make-create-meal-use-case';
+import { makeAuthenticateUseCase } from '../../../api/domain/user/applications/use-case/factories/make-authenticate-use-case';
+import { makeCreateUserUseCase } from '../../../api/domain/user/applications/use-case/factories/make-create-user-use-case';
+import { UserRepositoryInMemory } from '../../repositorys -in-memory/user-repository-in-memory';
 
 describe('testando caso de uso: criar nova refeição',()=>{
     let sut = makeCreateMealUseCase()
     const name = 'Nome da Refeição';
     const description = 'Descrição da Refeição';
-    const mealTime = '12/03/2022'
     const isOnTheDiet = true
     let InMemoryUserRepository = UserRepositoryInMemory.getInstance()
     let createUser = makeCreateUserUseCase(InMemoryUserRepository)

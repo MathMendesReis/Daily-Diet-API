@@ -1,6 +1,6 @@
 import { hash } from 'bcryptjs'
 import { beforeEach, describe, expect, test } from 'vitest'
-import { User } from '../../domain/user/enterprise/entities/user'
+import { User } from '../../api/domain/user/enterprise/entities/user'
 import { UserRepositoryInMemory } from './user-repository-in-memory'
 
 

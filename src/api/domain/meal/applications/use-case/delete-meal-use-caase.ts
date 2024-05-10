@@ -7,10 +7,7 @@ export class DeleteMealUseCase {
         private userRepository:userRepository,        
         private mealRepository:mealRepository,
         private jwtService:TJwtService
-
-
     ){}
-
     async execute({token,mealId}:{token:string,mealId:string}){
         const decoded = this.jwtService.verify(token)
         if(decoded === null){
@@ -24,7 +21,7 @@ export class DeleteMealUseCase {
          if(mealDB === null){
              throw new Error('not found meal')
          }
-        await this.mealRepository.deleteById(mealDB?.toValeu())
+        await this.mealRepository.deleteById(mealDB.toValeu())
     }
 
 }
