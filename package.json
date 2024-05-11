@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "start:dev": "tsx watch src/server.ts",
-    "start": "node src/server.js",
+    "start": "node build/server.js",
     "build": "tsup src/api --out-dir build --watch --onSuccess node src/server.js",
     "test": "vitest",
     "test:ui": "vitest --ui",
@@ -39,3 +39,5 @@
     "zod": "3.23.6"
   }
 }
+
+

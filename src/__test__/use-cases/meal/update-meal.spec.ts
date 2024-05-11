@@ -23,12 +23,12 @@ describe('update meal',()=>{
     beforeEach(()=>{
         InMemoryUserRepository = UserRepositoryInMemory.getInstance()
         InMemoryMealRepository = MealRepositoryInMemory.getInstance()
-        createUser = makeCreateUserUseCase(InMemoryUserRepository)
+        createUser = makeCreateUserUseCase()
     })
-    it('deve atualizar um usuario com sucesso',async()=>{
+    it('deve atualizar uma refeião com sucesso',async()=>{
         await createUser.execute('matheus','example@gmail.com','1234560')
         const userAuth = await auth.execute('example@gmail.com','1234560')
-        const newMeal = await createMeal.execute(name, description, new Date(), isOnTheDiet,userAuth)
+        const newMeal = await createMeal.execute(name, description, isOnTheDiet,userAuth)
         await sut.execute({
             token: userAuth,
             mealId: newMeal.toValeu(),

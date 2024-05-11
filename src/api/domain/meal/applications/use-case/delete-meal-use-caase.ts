@@ -17,7 +17,7 @@ export class DeleteMealUseCase {
         if(userDB === null){
             throw new Error('invalid token')
         }
-        const mealDB = await this.mealRepository.findUniqueById(mealId)
+        const mealDB = await this.mealRepository.findUniqueById(mealId,'_')
          if(mealDB === null){
              throw new Error('not found meal')
          }

@@ -11,7 +11,8 @@ describe('Create new user',()=>{
 
     beforeEach(()=>{
         InMemoryUserRepository = UserRepositoryInMemory.getInstance()
-        sut = makeCreateUserUseCase(InMemoryUserRepository)
+        sut = makeCreateUserUseCase()
+        
     })
 
     it('Deve ser possivel criar um novo usuario',async ()=>{

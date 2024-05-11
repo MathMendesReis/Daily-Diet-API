@@ -14,7 +14,6 @@ export class CreateMeal {
     async execute(
         name:string,
         description:string,
-        mealTime: Date,
         isOnTheDiet:boolean,
         token:string
     ){
@@ -31,7 +30,7 @@ export class CreateMeal {
             throw new Error('User not found')
         }
 
-        const newMeal = new Meal(name, description, new Date(mealTime),isOnTheDiet,userDB.toValeu())
+        const newMeal = new Meal(name, description, new Date(),isOnTheDiet,userDB.toValeu())
         await this.mealRepository.create(decoded.id,newMeal)
         return newMeal
     }

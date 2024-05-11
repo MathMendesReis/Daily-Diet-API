@@ -1,5 +1,5 @@
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
-import { fastify } from '../../api/core/fastify/app'
+import { fastify } from '../../../api/core/fastify/app'
 
 describe('create user constroller',()=>{
     beforeAll(async () => {

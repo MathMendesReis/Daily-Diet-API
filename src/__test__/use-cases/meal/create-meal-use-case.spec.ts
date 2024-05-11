@@ -10,17 +10,17 @@ describe('testando caso de uso: criar nova refeição',()=>{
     const description = 'Descrição da Refeição';
     const isOnTheDiet = true
     let InMemoryUserRepository = UserRepositoryInMemory.getInstance()
-    let createUser = makeCreateUserUseCase(InMemoryUserRepository)
+    let createUser = makeCreateUserUseCase()
     let authUseCaase = makeAuthenticateUseCase()
     
     it('deve retornar erro ao ter um token invalido',async()=>{
-       await expect(sut.execute(name, description, new Date(), isOnTheDiet,'-')).rejects.toThrow('Invalid token');
+       await expect(sut.execute(name, description, isOnTheDiet,'-')).rejects.toThrow('Invalid token');
     })
     it('deve  salvar uma refeição com sucesso',async()=>{
         const user = await createUser.execute('matheus','example@gmail.com','1234560')
         const response = await authUseCaase.execute(user.getEmail(),'1234560')
-        const res = await sut.execute(name, description, new Date(), isOnTheDiet,response)
+        const res = await sut.execute(name, description, isOnTheDiet,response)
         expect(res).toHaveProperty('id',res.toValeu())
-        await expect(sut.execute(name, description, new Date(), isOnTheDiet, response)).resolves.not.toThrow();
+        await expect(sut.execute(name, description, isOnTheDiet, response)).resolves.not.toThrow();
     })
 })

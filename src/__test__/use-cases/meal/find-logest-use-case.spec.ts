@@ -13,7 +13,7 @@ const jwtService = new JwtService()
 const findLongestStreakUseCase = new findLongestStreak(mealRepositoryMock, jwtService);
 const InMemoryUserRepository = UserRepositoryInMemory.getInstance();
 const authenticateUseCase = makeAuthenticateUseCase()
-const createUserUseCase = makeCreateUserUseCase(InMemoryUserRepository)
+const createUserUseCase = makeCreateUserUseCase()
 const createMealUseCase = makeCreateMealUseCase()
 const expectedStreak = 4;
 
@@ -32,7 +32,7 @@ test('should return the longest streak', async () => {
   
   // Use o caso de uso para criar as refeições
   for (const meal of meals) {
-    await createMealUseCase.execute(meal.name, meal.description, meal.mealTime, meal.isOnTheDiet, token);
+    await createMealUseCase.execute(meal.name, meal.description, meal.isOnTheDiet, token);
   }
   const result = await findLongestStreakUseCase.execute({ token });
   expect(result).toBe(expectedStreak);

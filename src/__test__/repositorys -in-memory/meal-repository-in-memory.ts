@@ -19,8 +19,8 @@ export class MealRepositoryInMemory implements mealRepository{
         this.meals = [...this.meals,meal]
         return
     }
-    async findUniqueById(id:string):Promise<Meal | null>{
-        return this.meals.find((x)=> x.toValeu() === id) || null;
+    async findUniqueById(mealId:string,userId?:string):Promise<Meal | null>{
+        return this.meals.find((x)=> x.toValeu() === mealId) || null;
     }
     async findMany(id:string):Promise<Meal[]>{
         return this.meals;
@@ -50,7 +50,6 @@ export class MealRepositoryInMemory implements mealRepository{
     }
     async findManyIsOnTheDietFalse(userId:string):Promise<Meal[]>{
         return this.meals.filter((x) => x.getIsOnTheDiet() === false);
-        // return this.meals.filter((x) => x.getIsOnTheDiet() === false && x.getId() === id);
 
     }
 

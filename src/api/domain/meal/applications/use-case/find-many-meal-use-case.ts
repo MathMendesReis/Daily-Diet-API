@@ -1,14 +1,13 @@
 import { TJwtService } from "../../../../core/entities/jwt";
 import { mealRepository } from "../repositories/meal-repository";
 
-export class FindManyMeal {
+export class FindManyMealUseCase {
     constructor(
         private mealRepository:mealRepository,        
         private jwtService:TJwtService
     ){}
 
     async execute({token}:{token:string, }){
-
         const decoded = this.jwtService.verify(token)
         if(decoded === null){
             throw new Error('INvalidade token')
@@ -16,3 +15,4 @@ export class FindManyMeal {
         return this.mealRepository.findMany(decoded.id)
     }
 }
+
