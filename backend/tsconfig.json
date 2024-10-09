@@ -1,0 +1,21 @@
+{
+   "compilerOptions": {
+     "module": "ESNext",
+     "target": "ES2020",
+     "moduleResolution": "Node",
+     "experimentalDecorators": true,
+     "emitDecoratorMetadata": true,
+     "outDir": "./dist",
+     "rootDir": "./src",
+     "strict": false,
+     "esModuleInterop": true,
+     "skipLibCheck": true,
+     "baseUrl": ".",
+     "paths": {
+      "@/env": ["./src/infra/env/env.ts"],
+      "@/datasource": ["./src/infra/database/typeorm/data-source.ts"],
+  },
+   },
+   "include": ["src/**/*"],
+   "exclude": ["node_modules"]
+ }
